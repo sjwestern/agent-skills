@@ -1,0 +1,21 @@
+name = "check-test-results"
+version = "1.0.0"
+description = "Checks test result files for failures across xUnit, Playwright, VSTest, and dotnet test. Returns status plus a limited list of failed tests, with optional full output."
+
+# Natural language triggers the agent can use
+triggers = [
+    "check test results",
+    "check tests",
+    "scan test results",
+    "scan tests",
+    "detect test failures",
+    "list failed tests",
+    "show failed tests",
+    "show all failed tests"
+]
+
+# The script to execute
+entrypoint = "run.sh"
+
+# This skill is stateless and safe for concurrent execution
+concurrency = "stateless"

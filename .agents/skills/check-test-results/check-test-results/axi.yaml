@@ -1,0 +1,18 @@
+name: check-test-results
+version: 1.0.0
+description: AXI tool that scans test result files for failures across xUnit, VSTest, Playwright, and dotnet test. Emits TOON output with aggregated counts, truncated failure lists, and a full-output escape hatch. Accepts a file or glob parameter, defaulting to test-results.*.
+
+commands:
+  - name: check
+    description: Scan test result files and emit TOON summary.
+    entrypoint: run.sh
+    args:
+      - name: file
+        required: false
+        description: File or glob to scan. Defaults to test-results.*.
+      - name: --full
+        required: false
+        description: Show all failures instead of truncated list.
+      - name: --help
+        required: false
+        description: Show concise AXI-style help.
