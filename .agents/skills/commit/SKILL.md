@@ -1,69 +1,27 @@
 ---
 name: commit
-description: Create git commits following repository style. Use when user asks to "create a commit", "commit changes", "/commit", or requests committing code to git. Don't use for pushing code, creating pull requests, or reviewing changes.
+effort: low
+description: Group unstaged changes into atomic commits by concern, matching repository style. Use when asked to "commit", "create a commit", or "commit changes". Don't use for pushing (/ship) or pull requests.
 ---
 
 # Git Commit
 
-## Pre-loaded context
+Group all unstaged/untracked changes into **atomic commits** — one commit per logical concern. A single concern is just the degenerate case: one commit. **Never push** — pushing belongs to `/ship`.
 
-- Status: !`git status`
-- Diff: !`git diff HEAD`
-- Log: !`git log --oneline -10`
+## Message style
 
-## Message Style
-
-Match repo's existing commit patterns from log.
-
-- Extreme concision, sacrifice grammar for brevity
-- Focus on "why" not "what"
-- Imperative mood
+Match the repo's existing commit patterns from `git log`. Extreme concision — sacrifice grammar for brevity. Focus on "why" not "what". Imperative mood. Conventional commits (`feat`/`fix`/`refactor`/`docs`/`chore` + scope) when the repo uses them.
 
 ## Workflow
 
-1. Review status and diff
-2. Analyze recent commit style from log
-3. Stage files explicitly (avoid `git add .` or `-A`)
-4. Commit with HEREDOC format matching repo style
-5. Run `git status` after to verify
+1. Review full diff and status; read recent log for style.
+2. Identify logical groups: feature/fix, its tests, config, formatting-only, docs, assets.
+3. Per group: stage those files explicitly by name, commit with a HEREDOC message, confirm `git status` before the next group.
+4. Finish with a clean working tree. Unsure how to group a file → ask.
 
-## Examples
+## Grouping rules
 
-**Bug fix** -- single file:
-
-```bash
-git add src/auth.ts
-git commit -m "fix: null check in login handler"
-```
-
-**Feature** -- multiple related files:
-
-```bash
-git add src/components/SearchBar.tsx src/hooks/useSearch.ts
-git commit -m "add search bar component"
-```
-
-**Refactor** -- extraction:
-
-```bash
-git add src/utils/validation.ts
-git commit -m "extract email validation to util"
-```
-
-## Rules
-
-- NEVER amend unless requested
-- NEVER skip hooks
-- NEVER commit secrets
-- Only commit when requested
-- Match existing commit patterns
-
-## Error Handling
-
-- Pre-commit hook fails -- fix issue, re-stage, create NEW commit (never `--amend`)
-- Nothing to commit -- report clean working tree and stop
-- Staged files contain secrets -- abort, warn user, unstage the file
-
-## See Also
-
-- [atomic-commits](../atomic-commits/SKILL.md) -- split changes into grouped commits by concern
+- Formatting-only changes (whitespace, quotes, indentation) get their own commit, separate from logic.
+- A file with both logic and formatting changes stays in the logic commit.
+- Tests and the code they test can share a commit.
+- Pre-commit hook fails → fix, re-stage, create a **new** commit; never `--amend`, never skip hooks.
