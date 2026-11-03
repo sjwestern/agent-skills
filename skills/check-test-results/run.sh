@@ -3,7 +3,7 @@ set -e
 
 # Help mode
 if [ "$1" = "--help" ]; then
-    echo "st:ok;help:\"check-test-results scans test result files and emits TOON summaries. Usage: check-test-results [file] [--full]. Default file glob: test-results.*. Flags: --full shows all failures. Output fields: st, tot, lim, rem, all, sug.\""
+    echo "st:ok;help:\"check-test-results scans test result files and emits TOON summaries. Usage: run.sh [file] [--full]. Default file glob: test-results.*. Flags: --full shows all failures. Output fields: st, tot, lim, rem, all, sug.\""
     exit 0
 fi
 

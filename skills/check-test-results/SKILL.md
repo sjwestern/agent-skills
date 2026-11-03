@@ -24,31 +24,33 @@ This skill follows AXI’s 10 Principles by using TOON output, truncating large 
 
 ## Usage
 
-Run test command and output to log file, then pass the log file to check-test-results.
+There is no `check-test-results` command on PATH. Run the `run.sh` script that sits next to this SKILL.md. Resolve it from the skill directory (the directory containing this file, wherever the skill is installed: `~/.agents/skills/`, `<repo>/.agents/skills/`, etc.). Do not guess a path or call it by name.
 
-Example:
+In the examples below, `$SKILL_DIR` is that directory, so `$SKILL_DIR/run.sh` is the script:
+
 ```bash
+SKILL_DIR=<directory containing this SKILL.md>
 dotnet test --logger "trx;LogFileName=results.trx"
-check-test-results results/*.trx
+"$SKILL_DIR/run.sh" results/*.trx
 ```
 
-Other Usage Examples once test results have been generated:
+Other examples once test results exist:
 ```bash
-check-test-results  
-check-test-results results/*.trx  
-check-test-results results.json  
-check-test-results --full  
-check-test-results results.xml --full  
-SHOW_ALL=1 check-test-results
+"$SKILL_DIR/run.sh"
+"$SKILL_DIR/run.sh" results/*.trx
+"$SKILL_DIR/run.sh" results.json
+"$SKILL_DIR/run.sh" --full
+"$SKILL_DIR/run.sh" results.xml --full
+SHOW_ALL=1 "$SKILL_DIR/run.sh"
 ```
 
 ## Help
 
-check-test-results --help
+"$SKILL_DIR/run.sh" --help
 
 Outputs TOON help:
 
-st:ok;help:"check-test-results scans test result files and emits TOON summaries. Usage: check-test-results [file] [--full]. Default file glob: test-results.*. Flags: --full shows all failures. Output fields: st, tot, lim, rem, all, sug, file."
+st:ok;help:"check-test-results scans test result files and emits TOON summaries. Usage: run.sh [file] [--full]. Default file glob: test-results.*. Flags: --full shows all failures. Output fields: st, tot, lim, rem, all, sug, file."
 
 ## Output Format (TOON)
 
