@@ -12,4 +12,4 @@ Original skills are MIT licensed (see `LICENSE`). Skills copied from other autho
 |---|---|
 | `check-test-results` | Original |
 | `commit` | Modified fork of [helderberto/agent-skills](https://github.com/helderberto/agent-skills) at f55869b (MIT): removed `/ship` references, added no-attribution rule |
-| `caveman` | [mattpocock/skills](https://github.com/mattpocock/skills) (MIT) |
+| `caveman` | Copy of [mattpocock/skills](https://github.com/mattpocock/skills) (MIT). Removed from the upstream repo, so this is the only maintained copy |
