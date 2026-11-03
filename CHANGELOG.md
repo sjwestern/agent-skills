@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Fixed 'check-test-results' skill examples calling a non-existent `check-test-results` command. They now run `run.sh` from the skill directory.
+- Moved `caveman` to `skills/` and stopped tracking `.agents/skills/` to avoid duplicate skill discovery.
+- Added root MIT `LICENSE`, restored the upstream `LICENSE` for `commit`, and documented skill sources in the README.
 
 ## [0.0.2] - 2026-07-16
 

@@ -1,12 +1,12 @@
 ---
 name: commit
 effort: low
-description: Group unstaged changes into atomic commits by concern, matching repository style. Use when asked to "commit", "create a commit", or "commit changes". Don't use for pushing (/ship) or pull requests.
+description: Group unstaged changes into atomic commits by concern, matching repository style. Use when asked to "commit", "create a commit", or "commit changes". Don't use for pushing or pull requests.
 ---
 
 # Git Commit
 
-Group all unstaged/untracked changes into **atomic commits** — one commit per logical concern. A single concern is just the degenerate case: one commit. **Never push** — pushing belongs to `/ship`.
+Group all unstaged/untracked changes into **atomic commits** — one commit per logical concern. A single concern is just the degenerate case: one commit. **Never push**. Never add attribution to commits.
 
 ## Message style
 

@@ -2,3 +2,5 @@ node_modules/
 .claude/
 .agent-memory/
 .agent-todos/
+skills-lock.json
+.agents/skills/
